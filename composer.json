@@ -1,0 +1,9 @@
+{
+    "name": "pixelbrackets/html5-mini-template",
+    "description": "HTML5 Mini Template for quick rendering of status pages, TOC pages, or any other minimal single-serving site",
+    "license": "GPL-2.0-or-later",
+    "type": "library",
+    "autoload": {
+        "psr-4": {"Pixelbrackets\\Html5MiniTemplate\\": "src/"}
+    }
+}
