@@ -27,6 +27,13 @@ https://gitlab.com/pixelbrackets/html5-mini-template/
    echo $template->getMarkup();
    ```
 
+1. Get template with custom content
+   ```php
+   $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
+   $template->setContent('<h1>Status</h1><p>All Systems Operational</p>');
+   echo $template->getMarkup();
+   ```
+
 ## License
 
 GNU General Public License version 2 or later
