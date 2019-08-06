@@ -27,12 +27,20 @@ https://gitlab.com/pixelbrackets/html5-mini-template/
    echo $template->getMarkup();
    ```
 
-1. Get template with custom content
+1. Get template with custom content and an external link to an CSS framework
    ```php
    $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
+   $template->setStylesheet('skeleton');
    $template->setContent('<h1>Status</h1><p>All Systems Operational</p>');
    echo $template->getMarkup();
    ```
+
+### Options
+
+- `setContent` any HTML string to replace the main content of the document
+- `setStylesheet` may be a URL to an existing stylesheet or one of the reserved 
+  keywords which links to a CDN of the selected CSS framework 
+  (eg. »[skeleton](http://getskeleton.com/)«).
 
 ## License
 

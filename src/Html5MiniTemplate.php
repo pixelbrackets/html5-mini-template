@@ -11,6 +11,23 @@ class Html5MiniTemplate {
     protected $markup = '';
 
     /**
+     * Stylesheet preselection
+     *
+     * @var array
+     */
+    protected $listOfStylesheets = [
+        'example' => '/assets/css/stylesheet.css?v=1',
+        'skeleton' => 'https://cdn.jsdelivr.net/gh/dhg/Skeleton@2.0.4/css/skeleton.css',
+    ];
+
+    /**
+     * The linked stylesheet
+     *
+     * @var array
+     */
+    protected $stylesheet = 'example';
+
+    /**
      * The documents main content
      *
      * @var string
@@ -30,14 +47,22 @@ class Html5MiniTemplate {
     /**
      * Process all changes like custom content
      *
-     * @param $text Markup for document body
+     * @param string $text Markup for document body
      * @return string
      */
     protected function parseMarkup() {
         $markup = $this->markup;
+
+        $stylesheet = '';
+        if (false === empty($this->stylesheet)) {
+            $stylesheet = '<link rel="stylesheet" href="' . ($this->listOfStylesheets[$this->stylesheet] ?? $this->stylesheet) . '">';
+        }
+        $markup = preg_replace('/<link rel="stylesheet" href="(.*?)">/', $stylesheet, $markup);
+
         if (false === empty($this->content)) {
             $markup = preg_replace('/<body>(.*?)<\/body>/is', '<body>' . $this->content . '</body>', $markup);
         }
+
         return $markup;
     }
 
@@ -48,6 +73,18 @@ class Html5MiniTemplate {
      */
     public function getMarkup() {
         return $this->parseMarkup();
+    }
+
+    /**
+     * Set stylesheet
+     *
+     * @param string $stylesheet Use keywords for one of the preselected stylesheets
+     * (see $listOfStylesheets, eg. »skeleton«), an empty string to remove the
+     * style tag or the URL to any other existing stylesheet (eg. »/styles.css«)
+     * @return void
+     */
+    public function setStylesheet($stylesheet) {
+        $this->stylesheet = $stylesheet;
     }
 
     /**
