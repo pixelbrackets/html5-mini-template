@@ -41,6 +41,7 @@ https://gitlab.com/pixelbrackets/html5-mini-template/
 - `setStylesheet` may be a URL to an existing stylesheet or one of the reserved 
   keywords which links to a CDN of the selected CSS framework 
   (eg. »[skeleton](http://getskeleton.com/)«).
+- `setTitle` changes the title of the document
 
 ## License
 

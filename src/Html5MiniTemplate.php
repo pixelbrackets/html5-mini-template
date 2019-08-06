@@ -21,6 +21,13 @@ class Html5MiniTemplate {
     ];
 
     /**
+     * The document title
+     *
+     * @var array
+     */
+    protected $title = '';
+
+    /**
      * The linked stylesheet
      *
      * @var array
@@ -53,6 +60,10 @@ class Html5MiniTemplate {
     protected function parseMarkup() {
         $markup = $this->markup;
 
+        if (false === empty($this->title)) {
+            $markup = preg_replace('/HTML5 Example Page/', $this->title, $markup);
+        }
+
         $stylesheet = '';
         if (false === empty($this->stylesheet)) {
             $stylesheet = '<link rel="stylesheet" href="' . ($this->listOfStylesheets[$this->stylesheet] ?? $this->stylesheet) . '">';
@@ -73,6 +84,16 @@ class Html5MiniTemplate {
      */
     public function getMarkup() {
         return $this->parseMarkup();
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title Set document title, description and header
+     * @return void
+     */
+    public function setTitle($title) {
+        $this->title = $title;
     }
 
     /**
