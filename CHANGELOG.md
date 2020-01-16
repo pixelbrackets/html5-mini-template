@@ -1,5 +1,9 @@
-Changelog
-=========
+# Changelog
+
+2020-01-16 Dan Untenzu <mail@pixelbrackets.de>
+
+  * 1.2.0
+  * FEATURE Add more css framework CDNs
 
 2019-08-06 Dan Untenzu <mail@pixelbrackets.de>
 
