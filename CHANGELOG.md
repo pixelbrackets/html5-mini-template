@@ -1,5 +1,10 @@
 # Changelog
 
+2020-02-27 Dan Untenzu <mail@pixelbrackets.de>
+
+  * 1.2.1
+  * BUGFIX CSS CDN needs specific version for skeleton
+
 2020-01-16 Dan Untenzu <mail@pixelbrackets.de>
 
   * 1.2.0
