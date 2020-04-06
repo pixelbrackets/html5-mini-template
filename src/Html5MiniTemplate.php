@@ -40,6 +40,13 @@ class Html5MiniTemplate {
     protected $stylesheet = 'example';
 
     /**
+     * The stylesheet render type
+     *
+     * @var array
+     */
+    protected $stylesheetMode = 0;
+
+    /**
      * The documents main content
      *
      * @var string
@@ -69,9 +76,12 @@ class Html5MiniTemplate {
         $markup = preg_replace('/HTML5 Example Page/', $this->getTitle() ?: 'HTML5 Example Page', $markup);
 
         // Stylesheet
-        $stylesheet = '';
-        if (false === empty($this->stylesheet)) {
-            $stylesheet = '<link rel="stylesheet" href="' . ($this->listOfStylesheets[$this->stylesheet] ?? $this->stylesheet) . '">';
+        if ($this->stylesheetMode === 1) {
+            $styles = $this->getStylesheetContent();
+            $stylesheet = ($styles) ? '<style>' . $styles . '</style>' : '';
+        } else {
+            $stylesheetUrl = $this->getStylesheetUrl();
+            $stylesheet = ($stylesheetUrl) ? '<link rel="stylesheet" href="' . $stylesheetUrl . '">' : '';
         }
         $markup = preg_replace('/<link rel="stylesheet" href="(.*?)">/', $stylesheet, $markup);
 
@@ -127,6 +137,44 @@ class Html5MiniTemplate {
      */
     public function setStylesheet($stylesheet) {
         $this->stylesheet = $stylesheet;
+    }
+
+    /**
+     * Set stylesheet render mode.
+     *
+     * 0 = LINK: The given stylesheet URL is linked as resource
+     * 1 = STYLE: The given stylesheet URL is fetched and rendered inline
+     *
+     * @param string $mode Set render mode, 0 = LINK-Tag, 1 = STYLE-Tag
+     * @return void
+     */
+    public function setStylesheetMode($mode) {
+        $this->stylesheetMode = $mode;
+    }
+
+    /**
+     * Get stylesheet URL
+     *
+     * @return string
+     */
+    protected function getStylesheetUrl() {
+        return $this->listOfStylesheets[$this->stylesheet] ?? $this->stylesheet;
+    }
+
+    /**
+     * Get stylesheet content
+     *
+     * @return string
+     */
+    protected function getStylesheetContent() {
+        try {
+            $stylesheetContent = file_get_contents($this->getStylesheetUrl()) ?: '';
+        } catch (Exception $e) {
+            // Catch exception if resource is not reachable
+            $stylesheetContent = '';
+        }
+
+        return $stylesheetContent;
     }
 
     /**

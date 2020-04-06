@@ -38,8 +38,9 @@ https://gitlab.com/pixelbrackets/html5-mini-template/
 ### Options
 
 - `setContent` any HTML string to replace the main content of the document
-- `setStylesheet` may be a URL to an existing stylesheet or one of the reserved 
-  keywords which links to a CDN of the selected CSS framework 
+- `setStylesheet` may be a URL to an existing stylesheet or one of the reserved
+  [keywords](https://gitlab.com/pixelbrackets/html5-mini-template/-/blob/1.2.1/src/Html5MiniTemplate.php#L18)
+  which links to a CDN of the selected CSS framework
   (eg. »[skeleton](http://getskeleton.com/)«).
 - `setTitle` changes the title of the document (fallback is the first headline
   found in the document)
