@@ -42,6 +42,9 @@ https://gitlab.com/pixelbrackets/html5-mini-template/
   [keywords](https://gitlab.com/pixelbrackets/html5-mini-template/-/blob/1.2.1/src/Html5MiniTemplate.php#L18)
   which links to a CDN of the selected CSS framework
   (eg. »[skeleton](http://getskeleton.com/)«).
+- `setStylesheetMode` either link the given stylesheet
+  (`Html5MiniTemplate::STYLE_LINK`) or fetch its content render it inline
+  (`Html5MiniTemplate::STYLE_INLINE`).
 - `setTitle` changes the title of the document (fallback is the first headline
   found in the document)
 

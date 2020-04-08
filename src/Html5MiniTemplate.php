@@ -44,7 +44,7 @@ class Html5MiniTemplate {
      *
      * @var array
      */
-    protected $stylesheetMode = 0;
+    protected $stylesheetMode = self::STYLE_LINK;
 
     /**
      * The documents main content
@@ -52,6 +52,9 @@ class Html5MiniTemplate {
      * @var string
      */
     protected $content = '';
+
+    const STYLE_LINK = 'link';
+    const STYLE_INLINE = 'inline';
 
     /**
      * Mini Template
@@ -76,7 +79,7 @@ class Html5MiniTemplate {
         $markup = preg_replace('/HTML5 Example Page/', $this->getTitle() ?: 'HTML5 Example Page', $markup);
 
         // Stylesheet
-        if ($this->stylesheetMode === 1) {
+        if ($this->stylesheetMode === self::STYLE_INLINE) {
             $styles = $this->getStylesheetContent();
             $stylesheet = ($styles) ? '<style>' . $styles . '</style>' : '';
         } else {
@@ -142,10 +145,13 @@ class Html5MiniTemplate {
     /**
      * Set stylesheet render mode.
      *
-     * 0 = LINK: The given stylesheet URL is linked as resource
-     * 1 = STYLE: The given stylesheet URL is fetched and rendered inline
+     * Html5MiniTemplate::STYLE_LINK: The given stylesheet URL is wrapped in a
+     * LINK-tag.
      *
-     * @param string $mode Set render mode, 0 = LINK-Tag, 1 = STYLE-Tag
+     * Html5MiniTemplate::STYLE_INLINE: The given stylesheet URL is fetched and
+     * its content rendered inline in a STYLE-tag.
+     *
+     * @param string $mode Set render mode, either Html5MiniTemplate::STYLE_LINK or Html5MiniTemplate::STYLE_INLINE
      * @return void
      */
     public function setStylesheetMode($mode) {

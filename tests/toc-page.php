@@ -5,7 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
 $template->setTitle('Index');
 $template->setStylesheet('skeleton');
-$template->setStylesheetMode(1);
+$template->setStylesheetMode(\Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate::STYLE_INLINE);
 $list = '';
 foreach (['Air', 'Earth', 'Fire', 'Water'] as $element) {
     $list .= '<li>' . $element . '</li>';
