@@ -65,16 +65,17 @@ class Html5MiniTemplate {
     protected function parseMarkup() {
         $markup = $this->markup;
 
-        if (false === empty($this->title)) {
-            $markup = preg_replace('/HTML5 Example Page/', $this->title, $markup);
-        }
+        // Title
+        $markup = preg_replace('/HTML5 Example Page/', $this->getTitle() ?: 'HTML5 Example Page', $markup);
 
+        // Stylesheet
         $stylesheet = '';
         if (false === empty($this->stylesheet)) {
             $stylesheet = '<link rel="stylesheet" href="' . ($this->listOfStylesheets[$this->stylesheet] ?? $this->stylesheet) . '">';
         }
         $markup = preg_replace('/<link rel="stylesheet" href="(.*?)">/', $stylesheet, $markup);
 
+        // Content
         if (false === empty($this->content)) {
             $markup = preg_replace('/<body>(.*?)<\/body>/is', '<body>' . $this->content . '</body>', $markup);
         }
@@ -99,6 +100,21 @@ class Html5MiniTemplate {
      */
     public function setTitle($title) {
         $this->title = $title;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    protected function getTitle() {
+        if (false === empty($this->title)) {
+            return $this->title;
+        }
+
+        // Fallback: First headline in document
+        preg_match('/(?s)(?<=<h1>)(.+?)(?=<\/h1>)/', $this->content, $headline);
+        return $headline[0] ?? '';
     }
 
     /**
