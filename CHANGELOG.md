@@ -1,5 +1,11 @@
 # Changelog
 
+2020-04-14 Dan Untenzu <mail@pixelbrackets.de>
+
+  * 1.3.0
+  * FEATURE Add option to render stylesheet inline
+  * FEATURE Use headline as title fallback
+
 2020-02-27 Dan Untenzu <mail@pixelbrackets.de>
 
   * 1.2.1
