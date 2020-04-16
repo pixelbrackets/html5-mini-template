@@ -173,8 +173,18 @@ class Html5MiniTemplate {
      * @return string
      */
     protected function getStylesheetContent() {
+        $stylesheetUrl = $this->getStylesheetUrl();
+
+        // try to get a cached version first
+        $cachefile = sys_get_temp_dir(). '/' . md5($stylesheetUrl) . '.css';
+        if (file_exists($cachefile) && (filemtime($cachefile) > (time() - 86400))) { // 1 day
+            return file_get_contents($cachefile);
+        }
+
         try {
-            $stylesheetContent = file_get_contents($this->getStylesheetUrl()) ?: '';
+            $stylesheetContent = file_get_contents($stylesheetUrl) ?: '';
+            // try to cache the file
+            file_put_contents($cachefile, $stylesheetContent, LOCK_EX);
         } catch (Exception $e) {
             // Catch exception if resource is not reachable
             $stylesheetContent = '';
