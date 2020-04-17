@@ -1,5 +1,10 @@
 # Changelog
 
+2020-04-17 Dan Untenzu <mail@pixelbrackets.de>
+
+  * 1.4.0
+  * FEATURE Cache inline stylesheet
+
 2020-04-14 Dan Untenzu <mail@pixelbrackets.de>
 
   * 1.3.0
