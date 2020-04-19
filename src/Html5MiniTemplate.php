@@ -2,7 +2,8 @@
 
 namespace Pixelbrackets\Html5MiniTemplate;
 
-class Html5MiniTemplate {
+class Html5MiniTemplate
+{
     /**
      * The HTML5 template
      *
@@ -72,7 +73,8 @@ class Html5MiniTemplate {
      * @param string $text Markup for document body
      * @return string
      */
-    protected function parseMarkup() {
+    protected function parseMarkup()
+    {
         $markup = $this->markup;
 
         // Title
@@ -101,7 +103,8 @@ class Html5MiniTemplate {
      *
      * @return string
      */
-    public function getMarkup() {
+    public function getMarkup()
+    {
         return $this->parseMarkup();
     }
 
@@ -111,7 +114,8 @@ class Html5MiniTemplate {
      * @param string $title Set document title, description and header
      * @return void
      */
-    public function setTitle($title) {
+    public function setTitle($title)
+    {
         $this->title = $title;
     }
 
@@ -120,7 +124,8 @@ class Html5MiniTemplate {
      *
      * @return string
      */
-    protected function getTitle() {
+    protected function getTitle()
+    {
         if (false === empty($this->title)) {
             return $this->title;
         }
@@ -138,7 +143,8 @@ class Html5MiniTemplate {
      * style tag or the URL to any other existing stylesheet (eg. »/styles.css«)
      * @return void
      */
-    public function setStylesheet($stylesheet) {
+    public function setStylesheet($stylesheet)
+    {
         $this->stylesheet = $stylesheet;
     }
 
@@ -154,7 +160,8 @@ class Html5MiniTemplate {
      * @param string $mode Set render mode, either Html5MiniTemplate::STYLE_LINK or Html5MiniTemplate::STYLE_INLINE
      * @return void
      */
-    public function setStylesheetMode($mode) {
+    public function setStylesheetMode($mode)
+    {
         $this->stylesheetMode = $mode;
     }
 
@@ -163,7 +170,8 @@ class Html5MiniTemplate {
      *
      * @return string
      */
-    protected function getStylesheetUrl() {
+    protected function getStylesheetUrl()
+    {
         return $this->listOfStylesheets[$this->stylesheet] ?? $this->stylesheet;
     }
 
@@ -172,7 +180,8 @@ class Html5MiniTemplate {
      *
      * @return string
      */
-    protected function getStylesheetContent() {
+    protected function getStylesheetContent()
+    {
         $stylesheetUrl = $this->getStylesheetUrl();
 
         // try to get a cached version first
@@ -185,7 +194,7 @@ class Html5MiniTemplate {
             $stylesheetContent = file_get_contents($stylesheetUrl) ?: '';
             // try to cache the file
             file_put_contents($cachefile, $stylesheetContent, LOCK_EX);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             // Catch exception if resource is not reachable
             $stylesheetContent = '';
         }
@@ -199,7 +208,8 @@ class Html5MiniTemplate {
      * @param string $text Markup for document body
      * @return void
      */
-    public function setContent($text) {
+    public function setContent($text)
+    {
         $this->content = $text;
     }
 }
