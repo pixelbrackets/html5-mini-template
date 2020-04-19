@@ -4,7 +4,7 @@
 [![Build Status](https://img.shields.io/gitlab/pipeline/pixelbrackets/html5-mini-template?style=flat-square)](https://gitlab.com/pixelbrackets/html5-mini-template/pipelines)
 [![Made With](https://img.shields.io/badge/made_with-php-blue?style=flat-square)](https://gitlab.com/pixelbrackets/html5-mini-template#requirements)
 [![License](https://img.shields.io/badge/license-gpl--2.0--or--later-blue.svg?style=flat-square)](https://spdx.org/licenses/GPL-2.0-or-later.html)
-[![Contribution](https://img.shields.io/badge/contributions_welcome-%F0%9F%94%B0-brightgreen.svg?labelColor=brightgreen&style=flat-square)](https://dev.to/vinistock/open-source-contribution-guide-for-beginners-4oa0)
+[![Contribution](https://img.shields.io/badge/contributions_welcome-%F0%9F%94%B0-brightgreen.svg?labelColor=brightgreen&style=flat-square)](https://gitlab.com/pixelbrackets/html5-mini-template/-/blob/master/CONTRIBUTING.md)
 
 The packages provides an HTML5 mini template for quick rendering of 
 status pages, TOC pages, or any other minimal single-serving site.
@@ -69,3 +69,5 @@ See [./CHANGELOG.md](CHANGELOG.md)
 ## Contribution
 
 This script is Open Source, so please use, patch, extend or fork it.
+
+[Contributions](CONTRIBUTING.md) are welcome!
