@@ -1,5 +1,10 @@
 # Changelog
 
+2020-04-19 Dan Untenzu <mail@pixelbrackets.de>
+
+  * 1.5.0
+  * FEATURE Apply coding guidelines
+
 2020-04-17 Dan Untenzu <mail@pixelbrackets.de>
 
   * 1.4.0
