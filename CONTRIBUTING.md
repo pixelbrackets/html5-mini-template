@@ -10,7 +10,7 @@ By participating in this project you agree to abide by its terms.
 
 ## Vision
 
-The general idea of this project is described in the [README](./README.md).
+The general idea of this project is described in the [README](./README.md#Vision).
 
 ## How to contribute
 

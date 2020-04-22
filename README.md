@@ -11,6 +11,20 @@ status pages, TOC pages, or any other minimal single-serving site.
 
 ![Screenshot](./docs/screenshot.png)
 
+## Vision
+
+This package provides a single class to turn a text or HTML-snippet into a valid
+HTML5 document.
+
+This way it is possible to let an app return an HTML response without the need
+to store a template file beforehand or initialize a full-blown template engine.
+
+The package therefore does not have template variables, modifiers or parsers.
+Three lines of code should be sufficient to wrap a given message into a valid
+HTML document. See [»Usage«](#Usage) for some examples.
+
+The package follows the KISS principle.
+
 ## Requirements
 
 * PHP
