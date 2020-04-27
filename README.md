@@ -55,16 +55,22 @@ https://gitlab.com/pixelbrackets/html5-mini-template/
 
 ### Options
 
-- `setContent` any HTML string to replace the main content of the document
-- `setStylesheet` may be a URL to an existing stylesheet or one of the reserved
-  [keywords](https://gitlab.com/pixelbrackets/html5-mini-template/-/blob/1.2.1/src/Html5MiniTemplate.php#L18)
-  which links to a CDN of the selected CSS framework
-  (eg. »[skeleton](http://getskeleton.com/)«).
-- `setStylesheetMode` either link the given stylesheet
-  (`Html5MiniTemplate::STYLE_LINK`) or fetch its content render it inline
-  (`Html5MiniTemplate::STYLE_INLINE`).
-- `setTitle` changes the title of the document (fallback is the first headline
-  found in the document)
+- `setContent()` the message to show, any HTML string to replace the main
+  content of the document
+- `setStylesheet()` may be a URL to any existing stylesheet *or*
+  one of following reserved [keywords](https://gitlab.com/pixelbrackets/html5-mini-template/-/blob/1.2.1/src/Html5MiniTemplate.php#L18)
+  which then creates a link to a CDN of the selected CSS framework
+  - [`bootstrap`](https://github.com/twbs/bootstrap/)
+  - [`milligram`](https://github.com/milligram/milligram/)
+  - [`minicss`](https://github.com/Chalarangelo/mini.css/)
+  - [`mui`](https://github.com/muicss/mui/)
+  - [`picnic`](https://github.com/franciscop/picnic/)
+  - [`skeleton`](https://github.com/dhg/Skeleton/)
+- `setStylesheetMode()` either link the given stylesheet
+  (`Html5MiniTemplate::STYLE_LINK`, default) or fetch its content and print
+  it inline (`Html5MiniTemplate::STYLE_INLINE`).
+- `setTitle()` the title is the first headline found in the document, unless
+  it is overwritten with this option
 
 ## License
 
