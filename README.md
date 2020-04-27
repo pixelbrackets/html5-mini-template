@@ -78,6 +78,10 @@ https://gitlab.com/pixelbrackets/html5-mini-template/
   it inline (`Html5MiniTemplate::STYLE_INLINE`).
 - `setTitle()` the title is the first headline found in the document, unless
   it is overwritten with this option
+- `setAdditionalMetadata()` any additional metadata like metatags or link
+  references, for example a canonical link to avoid duplicate content - Usage
+  of this option is an indicator that the given use case is too specific and
+  switching to a template engine should be considered
 
 ## License
 

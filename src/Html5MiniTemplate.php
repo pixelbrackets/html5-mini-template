@@ -48,6 +48,13 @@ class Html5MiniTemplate
     protected $stylesheetMode = self::STYLE_LINK;
 
     /**
+     * Additional metadata in the document head
+     *
+     * @var string
+     */
+    protected $additionalMetadata = '';
+
+    /**
      * The documents main content
      *
      * @var string
@@ -88,6 +95,9 @@ class Html5MiniTemplate
             $stylesheet = ($stylesheetUrl) ? '<link rel="stylesheet" href="' . $stylesheetUrl . '">' : '';
         }
         $markup = preg_replace('/<link rel="stylesheet" href="(.*?)">/', $stylesheet, $markup);
+
+        // Additional Metadata
+        $markup = preg_replace('/<\/head>/', $this->additionalMetadata . '</head>', $markup);
 
         // Content
         if (false === empty($this->content)) {
@@ -199,6 +209,17 @@ class Html5MiniTemplate
         }
 
         return $stylesheetContent;
+    }
+
+    /**
+     * Set any additional metadata like metatags or link references.
+     *
+     * @param string $metadata Additional metadata for document head
+     * @return void
+     */
+    public function setAdditionalMetadata($metadata)
+    {
+        $this->additionalMetadata = $metadata;
     }
 
     /**
