@@ -1,8 +1,18 @@
 # Changelog
 
+2020-04-27 Dan Untenzu <mail@pixelbrackets.de>
+
+  * 1.6.0
+  * FEATURE Docs: Be more verbose in options description
+  * FEATURE Docs: Add example usage case
+  * BUGFIX CGL: Correct PhpDocs
+  * BUGFIX Styles: Rename ambiguous keyword
+  * FEATURE Enable setting additional metadata
+
 2020-04-19 Dan Untenzu <mail@pixelbrackets.de>
 
   * 1.5.0
+  * FEATURE Add contribution guide
   * FEATURE Apply coding guidelines
 
 2020-04-17 Dan Untenzu <mail@pixelbrackets.de>
