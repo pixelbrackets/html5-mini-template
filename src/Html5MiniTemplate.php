@@ -14,7 +14,7 @@ class Html5MiniTemplate
     /**
      * Stylesheet preselection
      *
-     * @var array
+     * @var array<string>
      */
     protected $listOfStylesheets = [
         'bootstrap' => 'https://cdn.jsdelivr.net/gh/twbs/bootstrap@4.3/dist/css/bootstrap.min.css',
@@ -29,21 +29,21 @@ class Html5MiniTemplate
     /**
      * The document title
      *
-     * @var array
+     * @var string
      */
     protected $title = '';
 
     /**
      * The linked stylesheet
      *
-     * @var array
+     * @var string
      */
     protected $stylesheet = 'example';
 
     /**
      * The stylesheet render type
      *
-     * @var array
+     * @var string
      */
     protected $stylesheetMode = self::STYLE_LINK;
 
@@ -70,7 +70,6 @@ class Html5MiniTemplate
     /**
      * Process all changes like custom content
      *
-     * @param string $text Markup for document body
      * @return string
      */
     protected function parseMarkup()
