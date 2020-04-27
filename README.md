@@ -41,11 +41,18 @@ https://gitlab.com/pixelbrackets/html5-mini-template/
 
 1. Get the example template
    ```php
-   $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
-   echo $template->getMarkup();
+   $document = (new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate())->getMarkup();
    ```
 
-1. Get template with custom content and an external link to an CSS framework
+1. Get template with custom content and write to file
+   ```php
+   $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
+   $template->setContent('<h1>Index</h1><p>Nothing to see here</p>');
+   file_put_contents('/var/www/example/index.html', $template->getMarkup());
+   ```
+
+1. Get template with custom content, an external link to a CSS framework
+   output the document as response
    ```php
    $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
    $template->setStylesheet('skeleton');
