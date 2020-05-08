@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/license-gpl--2.0--or--later-blue.svg?style=flat-square)](https://spdx.org/licenses/GPL-2.0-or-later.html)
 [![Contribution](https://img.shields.io/badge/contributions_welcome-%F0%9F%94%B0-brightgreen.svg?labelColor=brightgreen&style=flat-square)](https://gitlab.com/pixelbrackets/html5-mini-template/-/blob/master/CONTRIBUTING.md)
 
-The packages provides an HTML5 mini template for quick rendering of 
+The packages provides an HTML5 mini template for quick rendering of
 status pages, TOC pages, or any other minimal single-serving site.
 
 ![Screenshot](./docs/screenshot.png)
@@ -21,9 +21,20 @@ to store a template file beforehand or initialize a full-blown template engine.
 
 The package therefore does not have template variables, modifiers or parsers.
 Three lines of code should be sufficient to wrap a given message into a valid
-HTML document. See [»Usage«](#Usage) for some examples.
+HTML document. See [»Usage«](#usage) for some examples.
 
 The package follows the KISS principle.
+
+## Webapp
+
+This package is used on [html5example.com](https://html5example.com/).
+
+If you are in need of an HTML document once only, then use a commandline tool
+like HTTPie and run `http https://html5example.com > index.html`.
+
+The webapp supports some [options](#options) of this package as well,
+for example `http POST https://html5example.com title=Minimal-Template > index.html`
+to pass a custom title.
 
 ## Requirements
 
