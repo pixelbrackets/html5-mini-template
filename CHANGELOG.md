@@ -1,5 +1,10 @@
 # Changelog
 
+2020-05-11 Dan Untenzu <mail@pixelbrackets.de>
+
+  * 1.7.0
+  * FEATURE Escape special chars in title and attribute options
+
 2020-04-27 Dan Untenzu <mail@pixelbrackets.de>
 
   * 1.6.0
