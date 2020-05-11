@@ -84,7 +84,8 @@ class Html5MiniTemplate
         $markup = $this->markup;
 
         // Title
-        $markup = preg_replace('/HTML5 Example Page/', $this->getTitle() ?: 'HTML5 Example Page', $markup);
+        $title = $this->getTitle() ?: 'HTML5 Example Page';
+        $markup = preg_replace('/HTML5 Example Page/', htmlspecialchars($title), $markup);
 
         // Stylesheet
         if ($this->stylesheetMode === self::STYLE_INLINE) {
@@ -92,7 +93,7 @@ class Html5MiniTemplate
             $stylesheet = ($styles) ? '<style>' . $styles . '</style>' : '';
         } else {
             $stylesheetUrl = $this->getStylesheetUrl();
-            $stylesheet = ($stylesheetUrl) ? '<link rel="stylesheet" href="' . $stylesheetUrl . '">' : '';
+            $stylesheet = ($stylesheetUrl) ? '<link rel="stylesheet" href="' . htmlspecialchars($stylesheetUrl) . '">' : '';
         }
         $markup = preg_replace('/<link rel="stylesheet" href="(.*?)">/', $stylesheet, $markup);
 
