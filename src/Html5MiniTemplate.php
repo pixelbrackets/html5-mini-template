@@ -67,7 +67,7 @@ class Html5MiniTemplate
     /**
      * Mini Template
      *
-     * @return string
+     * @return void
      */
     public function __construct()
     {
@@ -116,6 +116,16 @@ class Html5MiniTemplate
     public function getMarkup()
     {
         return $this->parseMarkup();
+    }
+
+    /**
+     * Get example template
+     *
+     * @return string
+     */
+    public static function getTemplate()
+    {
+        return file_get_contents(__DIR__ . '/../resources/template.html');
     }
 
     /**
@@ -195,7 +205,7 @@ class Html5MiniTemplate
         $stylesheetUrl = $this->getStylesheetUrl();
 
         // try to get a cached version first
-        $cachefile = sys_get_temp_dir(). '/' . md5($stylesheetUrl) . '.css';
+        $cachefile = sys_get_temp_dir() . '/' . md5($stylesheetUrl) . '.css';
         if (file_exists($cachefile) && (filemtime($cachefile) > (time() - 86400))) { // 1 day
             return file_get_contents($cachefile);
         }

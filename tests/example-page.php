@@ -2,4 +2,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-echo (new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate())->getMarkup();
+echo \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate::getTemplate();
+
+// same as
+//   echo (new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate())->getMarkup();

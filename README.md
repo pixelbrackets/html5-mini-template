@@ -13,15 +13,17 @@ status pages, TOC pages, or any other minimal single-serving site.
 
 ## Vision
 
-This package provides a single class to turn a text or HTML-snippet into a valid
-HTML5 document.
+This package provides a single class to turn a message or HTML-snippet into
+a valid HTML5 document.
 
 This way it is possible to let an app return an HTML response without the need
 to store a template file beforehand or initialize a full-blown template engine.
 
-The package therefore does not have template variables, modifiers or parsers.
-Three lines of code should be sufficient to wrap a given message into a valid
-HTML document. See [»Usage«](#usage) for some examples.
+The package therefore does not have template variables or modifiers.
+Two lines of code should be sufficient to wrap a given text into a valid
+HTML document. One more to add a link to fancy stylesheet.
+
+See [»Usage«](#usage) for some examples.
 
 The package follows the KISS principle.
 
@@ -29,11 +31,13 @@ The package follows the KISS principle.
 
 This package is used on [html5example.com](https://html5example.com/).
 
-If you are in need of an HTML document once only, then use a commandline tool
-like HTTPie and run `http https://html5example.com > index.html`.
+If you are in need of an HTML document once only, then you may use a 
+commandline tool like HTTPie and run
+`http https://html5example.com > index.html` to save a template file.
 
 The webapp supports some [options](#options) of this package as well,
-for example `http POST https://html5example.com title=Minimal-Template > index.html`
+for example
+`http POST https://html5example.com title=Minimal-Template > index.html`
 to pass a custom title.
 
 ## Requirements
@@ -48,27 +52,40 @@ Packagist Entry https://packagist.org/packages/pixelbrackets/html5-mini-template
 
 https://gitlab.com/pixelbrackets/html5-mini-template/
 
+Mirror https://github.com/pixelbrackets/html5-mini-template
+
 ## Usage
 
-1. Get the example template
-   ```php
-   $document = (new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate())->getMarkup();
-   ```
-
-1. Get template with custom content and write to file
+1. Wrap a message into a HTML5 document, return to a PSR-7 implementation
    ```php
    $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
+   $template->setContent('<h1>Status</h1><p>All Systems Operational</p>');
+   return $template->getMarkup();
+   ```
+
+1. Wrap a message, use a preconfigured CSS framework CDN
+   (see [»options«](#options) for a list of supported frameworks),
+   and save the document into a file
+   ```php
+   $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
+   $template->setStylesheet('skeleton');
    $template->setContent('<h1>Index</h1><p>Nothing to see here</p>');
    file_put_contents('/var/www/example/index.html', $template->getMarkup());
    ```
 
-1. Get template with custom content, an external link to a CSS framework
-   output the document as response
+1. Wrap a message, set a custom stylesheet URL,
+   set a title, output the document
    ```php
    $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
-   $template->setStylesheet('skeleton');
-   $template->setContent('<h1>Status</h1><p>All Systems Operational</p>');
+   $template->setStylesheet('/assets/styles.css');
+   $template->setTitle('Index');
+   $template->setContent('<h1>TOC</h1><ul><li>a</li><li>b</li></ul>');
    echo $template->getMarkup();
+   ```
+
+1. Get the example template only (👉 or use the [Webapp](#webapp))
+   ```php
+   echo \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate::getTemplate();
    ```
 
 ### Options
@@ -90,9 +107,12 @@ https://gitlab.com/pixelbrackets/html5-mini-template/
 - `setTitle()` the title is the first headline found in the document, unless
   it is overwritten with this option
 - `setAdditionalMetadata()` any additional metadata like metatags or link
-  references, for example a canonical link to avoid duplicate content - Usage
-  of this option is an indicator that the given use case is too specific and
-  switching to a template engine should be considered
+  references, for example a canonical link to avoid duplicate content
+  - ⚠️ Usage of this option is an indicator that the given use case is too
+    specific and switching to a template engine like the minimal
+    [slim/php-view](https://packagist.org/packages/slim/php-view) or the
+    powerfull [twig/twig](https://packagist.org/packages/twig/twig)
+    should be considered
 
 ## License
 

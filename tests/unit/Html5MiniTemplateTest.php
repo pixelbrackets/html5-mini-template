@@ -7,9 +7,8 @@ class Html5MiniTemplateTest extends TestCase
 {
     public function testExampleTemplate()
     {
-        $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
+        $document = \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate::getTemplate();
 
-        $document = $template->getMarkup();
         $this->assertNotEmpty($document);
         $this->assertStringContainsString('<!DOCTYPE html>', $document);
         $this->assertStringContainsString('<h1>HTML5 Example Page</h1>', $document);
