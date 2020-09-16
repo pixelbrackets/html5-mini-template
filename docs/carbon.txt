@@ -1,0 +1,23 @@
+$template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
+$template->setStylesheet('skeleton');
+$template->setContent('<h1>Status</h1><p>All Systems Operational</p>');
+return $template->getMarkup();
+
+// Returns minimal HTML5 document markup
+/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Status</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Status">
+  <link rel="stylesheet" href="https://jsdelivr.com/Skeleton@2.0.4/skeleton.css">
+</head>
+<body>
+  <h1>Status</h1>
+  <p>All Systems Operational</p>
+</body>
+</html>
+*/
