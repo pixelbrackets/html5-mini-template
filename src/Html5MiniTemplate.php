@@ -38,7 +38,7 @@ class Html5MiniTemplate
      *
      * @var string
      */
-    protected $stylesheet = 'example';
+    protected $stylesheet = '';
 
     /**
      * The stylesheet render type
@@ -57,9 +57,9 @@ class Html5MiniTemplate
     /**
      * The documents main content
      *
-     * @var string
+     * @var string|null
      */
-    protected $content = '';
+    protected $content;
 
     const STYLE_LINK = 'link';
     const STYLE_INLINE = 'inline';
@@ -82,6 +82,12 @@ class Html5MiniTemplate
     protected function parseMarkup()
     {
         $markup = $this->markup;
+        $content = $this->content;
+
+        // no message set = early return example template
+        if ($content === null) {
+            return self::getTemplate();
+        }
 
         // Title
         $title = $this->getTitle() ?: 'HTML5 Example Page';
@@ -101,9 +107,7 @@ class Html5MiniTemplate
         $markup = preg_replace('/<\/head>/', $this->additionalMetadata . '</head>', $markup);
 
         // Content
-        if (false === empty($this->content)) {
-            $markup = preg_replace('/<body>(.*?)<\/body>/is', '<body>' . $this->content . '</body>', $markup);
-        }
+        $markup = preg_replace('/<body>(.*?)<\/body>/is', '<body>' . $content . '</body>', $markup);
 
         return $markup;
     }
