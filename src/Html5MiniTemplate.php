@@ -139,11 +139,12 @@ class Html5MiniTemplate
      * Set title
      *
      * @param string $title Set document title, description and header
-     * @return void
+     * @return Html5MiniTemplate
      */
     public function setTitle($title)
     {
         $this->title = $title;
+        return $this;
     }
 
     /**
@@ -168,11 +169,12 @@ class Html5MiniTemplate
      * @param string $stylesheet Use keywords for one of the preselected stylesheets
      * (see $listOfStylesheets, eg. »skeleton«), an empty string to remove the
      * style tag or the URL to any other existing stylesheet (eg. »/styles.css«)
-     * @return void
+     * @return Html5MiniTemplate
      */
     public function setStylesheet($stylesheet)
     {
         $this->stylesheet = $stylesheet;
+        return $this;
     }
 
     /**
@@ -185,11 +187,12 @@ class Html5MiniTemplate
      * its content rendered inline in a STYLE-tag.
      *
      * @param string $mode Set render mode, either Html5MiniTemplate::STYLE_LINK or Html5MiniTemplate::STYLE_INLINE
-     * @return void
+     * @return Html5MiniTemplate
      */
     public function setStylesheetMode($mode)
     {
         $this->stylesheetMode = $mode;
+        return $this;
     }
 
     /**
@@ -233,21 +236,23 @@ class Html5MiniTemplate
      * Set any additional metadata like metatags or link references.
      *
      * @param string $metadata Additional metadata for document head
-     * @return void
+     * @return Html5MiniTemplate
      */
     public function setAdditionalMetadata($metadata)
     {
         $this->additionalMetadata = $metadata;
+        return $this;
     }
 
     /**
      * Set markup for document body
      *
      * @param string $text Markup for document body
-     * @return void
+     * @return Html5MiniTemplate
      */
     public function setContent($text)
     {
         $this->content = $text;
+        return $this;
     }
 }

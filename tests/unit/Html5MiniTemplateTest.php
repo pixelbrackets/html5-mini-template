@@ -121,4 +121,15 @@ class Html5MiniTemplateTest extends TestCase
         $document = $template->getMarkup();
         $this->assertStringContainsString('canonical', $document);
     }
+
+    public function testFluentInterface()
+    {
+        $document = (new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate())
+            ->setStylesheet('/style.css')
+            ->setContent('Hello World')
+            ->setTitle('Index')
+            ->setAdditionalMetadata('<link rel="canonical" href="https://html5example.com/">')
+            ->getMarkup();
+        $this->assertNotEmpty($document);
+    }
 }

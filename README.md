@@ -73,13 +73,13 @@ Mirror https://github.com/pixelbrackets/html5-mini-template
    file_put_contents('/var/www/example/index.html', $template->getMarkup());
    ```
 
-1. Wrap a message, set a custom stylesheet URL,
-   set a title, output the document
+1. Wrap a message, set your own stylesheet URL, set a title,
+   output the document
    ```php
-   $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
-   $template->setStylesheet('/assets/styles.css');
-   $template->setTitle('Index');
-   $template->setContent('<h1>TOC</h1><ul><li>a</li><li>b</li></ul>');
+   $template = (new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate())
+       ->setStylesheet('/assets/styles.css')
+       ->setTitle('Index')
+       ->setContent('<h1>TOC</h1><ul><li>a</li><li>b</li></ul>');
    echo $template->getMarkup();
    ```
 
