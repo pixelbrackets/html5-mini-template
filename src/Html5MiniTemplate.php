@@ -90,8 +90,11 @@ class Html5MiniTemplate
         }
 
         // Title
-        $title = $this->getTitle() ?: 'HTML5 Example Page';
-        $markup = preg_replace('/HTML5 Example Page/', htmlspecialchars($title), $markup);
+        $title = $this->getTitle() ?: 'Untitled Document';
+        $markup = preg_replace('/<title>(.*?)<\/title>/', '<title>' . htmlspecialchars($title) . '</title>', $markup);
+
+        // Reuse title in meta description
+        $markup = preg_replace('/<meta name="description" content="(.*?)">/', '<meta name="description" content="' . htmlspecialchars($title) . '">', $markup);
 
         // Stylesheet
         if ($this->stylesheetMode === self::STYLE_INLINE) {

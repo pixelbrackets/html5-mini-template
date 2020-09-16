@@ -26,6 +26,7 @@ class Html5MiniTemplateTest extends TestCase
         $document = $template->getMarkup();
         $this->assertNotEmpty($document);
         $this->assertStringContainsString('<!DOCTYPE html>', $document);
+        $this->assertStringContainsString('<title>HTML5 Example Page</title>', $document);
         $this->assertStringContainsString('<h1>HTML5 Example Page</h1>', $document);
         $this->assertStringContainsString('scripts.js', $document);
         $this->assertStringContainsString('stylesheet.css', $document);
@@ -40,7 +41,7 @@ class Html5MiniTemplateTest extends TestCase
         $this->assertNotEmpty($document);
         $this->assertStringContainsString('<!DOCTYPE html>', $document);
         $this->assertStringContainsString('<body></body>', $document);
-        $this->assertStringNotContainsString('<h1>HTML5 Example Page</h1>', $document);
+        $this->assertStringNotContainsString('HTML5 Example Page', $document);
         $this->assertStringNotContainsString('scripts.js', $document);
         $this->assertStringNotContainsString('stylesheet.css', $document);
     }
@@ -62,14 +63,21 @@ class Html5MiniTemplateTest extends TestCase
     {
         $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
 
-        // automatic: first headline
-        $template->setContent('<h1>Index</h1>');
+        // fallback: neutral title
+        $template->setContent('<p>Hello World</p>');
+        $document = $template->getMarkup();
+        $this->assertStringNotContainsString('HTML5 Example Page', $document);
+        $this->assertStringContainsString('<title>Untitled Document</title>', $document);
+
+        // fallback: first headline found
+        $template->setContent('<p>Hello</p><h1>Index</h1><p>World</p>');
         $document = $template->getMarkup();
         $this->assertStringNotContainsString('HTML5 Example Page', $document);
         $this->assertStringContainsString('<h1>Index</h1>', $document);
         $this->assertStringContainsString('<title>Index</title>', $document);
 
-        // manually: set title
+        // set title
+        $template->setContent('<p>Hello</p><h1>Index</h1><p>World</p>');
         $template->setTitle('Redirect');
         $document = $template->getMarkup();
         $this->assertStringContainsString('<h1>Index</h1>', $document);
