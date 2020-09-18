@@ -2,6 +2,15 @@
 
 2020-09-18 Dan Untenzu <mail@pixelbrackets.de>
 
+  * 2.0.0
+  * BUGFIX Don't use example title as fallback
+  * BUGFIX Don't use example stylesheet as fallback
+  * FEATURE !! Enable method chaining
+    * Changes return values of all setter methods
+      (before »void«, now »Html5MiniTemplate« class object)
+
+2020-09-18 Dan Untenzu <mail@pixelbrackets.de>
+
   * 1.8.0
   * FEATURE Docs: Replace screenshot
   * FEATURE Add static method to fetch example template
