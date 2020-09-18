@@ -1,5 +1,12 @@
 # Changelog
 
+2020-09-18 Dan Untenzu <mail@pixelbrackets.de>
+
+  * 1.8.0
+  * FEATURE Docs: Replace screenshot
+  * FEATURE Add static method to fetch example template
+  * FEATURE Add minimal tests
+
 2020-05-11 Dan Untenzu <mail@pixelbrackets.de>
 
   * 1.7.0
