@@ -54,6 +54,10 @@ https://gitlab.com/pixelbrackets/html5-mini-template/
 
 Mirror https://github.com/pixelbrackets/html5-mini-template
 
+## Demo
+
+⌨️ [`php tests/demo.php`](./tests/demo.php).
+
 ## Usage
 
 1. Wrap a message into a HTML5 document, return to a PSR-7 implementation
