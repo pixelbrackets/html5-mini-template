@@ -6,10 +6,12 @@
 [![License](https://img.shields.io/badge/license-gpl--2.0--or--later-blue.svg?style=flat-square)](https://spdx.org/licenses/GPL-2.0-or-later.html)
 [![Contribution](https://img.shields.io/badge/contributions_welcome-%F0%9F%94%B0-brightgreen.svg?labelColor=brightgreen&style=flat-square)](https://gitlab.com/pixelbrackets/html5-mini-template/-/blob/master/CONTRIBUTING.md)
 
-The packages provides an HTML5 mini template for quick rendering of
-status pages, TOC pages, or any other minimal single-serving site.
+HTML5 Mini Template for quick rendering of status pages, TOC pages,
+or any other minimal single-serving site.
 
 ![Screenshot](./docs/screenshot.png)
+
+_⭐ You like this package? Please star it or send a tweet. ⭐_
 
 ## Vision
 
@@ -42,7 +44,7 @@ to pass a custom title.
 
 ## Requirements
 
-* PHP
+- PHP
 
 ## Installation
 
@@ -52,7 +54,8 @@ Packagist Entry https://packagist.org/packages/pixelbrackets/html5-mini-template
 
 https://gitlab.com/pixelbrackets/html5-mini-template/
 
-Mirror https://github.com/pixelbrackets/html5-mini-template
+Mirror https://github.com/pixelbrackets/html5-mini-template/ (Issues & Pull Requests
+mirrored to GitLab)
 
 ## Demo
 
@@ -131,10 +134,15 @@ Dan Untenzu (<mail@pixelbrackets.de> / [@pixelbrackets](https://pixelbrackets.de
 
 ## Changelog
 
-See [./CHANGELOG.md](CHANGELOG.md)
+See [CHANGELOG.md](./CHANGELOG.md)
 
 ## Contribution
 
-This script is Open Source, so please use, patch, extend or fork it.
+This script is Open Source, so please use, share, patch, extend or fork it.
 
-[Contributions](CONTRIBUTING.md) are welcome!
+[Contributions](./CONTRIBUTING.md) are welcome!
+
+## Feedback
+
+Please send some [feedback](https://pixelbrackets.de/) and share how this
+package has proven useful to you or how you may help to improve it.
