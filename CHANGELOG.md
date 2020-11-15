@@ -1,5 +1,10 @@
 # Changelog
 
+2020-11-15 Dan Untenzu <mail@pixelbrackets.de>
+
+  * 2.1.0
+  * FEATURE Add gfm-stylesheet
+
 2020-09-18 Dan Untenzu <mail@pixelbrackets.de>
 
   * 2.0.0
