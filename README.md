@@ -96,6 +96,7 @@ Mirror https://github.com/pixelbrackets/html5-mini-template
   one of following reserved [keywords](https://gitlab.com/pixelbrackets/html5-mini-template/-/blob/1.2.1/src/Html5MiniTemplate.php#L18)
   which then creates a link to a CDN of the selected CSS framework
   - [`bootstrap`](https://github.com/twbs/bootstrap/)
+  - [`gfm`](https://github.com/pixelbrackets/gfm-stylesheet/)
   - [`milligram`](https://github.com/milligram/milligram/)
   - [`minicss`](https://github.com/Chalarangelo/mini.css/)
   - [`mui`](https://github.com/muicss/mui/)

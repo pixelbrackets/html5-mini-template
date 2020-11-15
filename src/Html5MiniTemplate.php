@@ -19,6 +19,7 @@ class Html5MiniTemplate
     protected $listOfStylesheets = [
         'bootstrap' => 'https://cdn.jsdelivr.net/gh/twbs/bootstrap@4.3/dist/css/bootstrap.min.css',
         'example' => '/assets/css/stylesheet.css?v=1',
+        'gfm' => 'https://cdn.jsdelivr.net/gh/pixelbrackets/gfm-stylesheet@1.0/dist/gfm.min.css',
         'milligram' => 'https://cdn.jsdelivr.net/gh/milligram/milligram@1.3/dist/milligram.min.css',
         'minicss' => 'https://cdn.jsdelivr.net/gh/Chalarangelo/mini.css@3.0/dist/mini-default.min.css',
         'mui' => 'https://cdn.jsdelivr.net/gh/muicss/mui@0.9/packages/cdn/css/mui.min.css',
