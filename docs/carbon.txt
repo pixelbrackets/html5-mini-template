@@ -1,6 +1,6 @@
-$template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
-$template->setStylesheet('skeleton');
-$template->setContent('<h1>Status</h1><p>All Systems Operational</p>');
+$template = (new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate());
+    ->setStylesheet('skeleton');
+    ->setContent('<h1>Status</h1><p>All Systems Operational</p>');
 return $template->getMarkup();
 
 // Returns minimal HTML5 document markup
