@@ -1,6 +1,6 @@
 ### GENERAL ###
 
-image: chialab/php:7.2-apache
+image: chialab/php:8.0-apache
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -27,7 +27,7 @@ job_lint_app_phpdefaultversion: &definition_lint_app_phpdefaultversion
 
 job_lint_app_phpnextversion:
   <<: *definition_lint_app_phpdefaultversion
-  image: chialab/php:7.3-apache
+  image: chialab/php:8.1-apache
   allow_failure: true
 
 job_test_app:
