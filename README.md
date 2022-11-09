@@ -102,11 +102,13 @@ mirrored to GitLab)
 - `setStylesheet()` may be a URL to any existing stylesheet *or*
   one of following reserved [keywords](https://gitlab.com/pixelbrackets/html5-mini-template/-/blob/1.2.1/src/Html5MiniTemplate.php#L18)
   which then creates a link to a CDN of the selected CSS framework
+  - [`barebone`](https://github.com/pixelbrackets/barebone-stylesheet/)
   - [`bootstrap`](https://github.com/twbs/bootstrap/)
   - [`gfm`](https://github.com/pixelbrackets/gfm-stylesheet/)
   - [`milligram`](https://github.com/milligram/milligram/)
   - [`minicss`](https://github.com/Chalarangelo/mini.css/)
   - [`mui`](https://github.com/muicss/mui/)
+  - [`mvp`](https://github.com/andybrewer/mvp/)
   - [`picnic`](https://github.com/franciscop/picnic/)
   - [`skeleton`](https://github.com/dhg/Skeleton/)
 - `setStylesheetMode()` either link the given stylesheet

@@ -17,12 +17,14 @@ class Html5MiniTemplate
      * @var array<string>
      */
     protected $listOfStylesheets = [
+        'barebone' => 'https://cdn.jsdelivr.net/gh/pixelbrackets/barebone-stylesheet@1.2/dist/barebone.min.css',
         'bootstrap' => 'https://cdn.jsdelivr.net/gh/twbs/bootstrap@4.3/dist/css/bootstrap.min.css',
         'example' => '/assets/css/stylesheet.css?v=1',
-        'gfm' => 'https://cdn.jsdelivr.net/gh/pixelbrackets/gfm-stylesheet@1.0/dist/gfm.min.css',
+        'gfm' => 'https://cdn.jsdelivr.net/gh/pixelbrackets/gfm-stylesheet@1.1/dist/gfm.min.css',
         'milligram' => 'https://cdn.jsdelivr.net/gh/milligram/milligram@1.3/dist/milligram.min.css',
         'minicss' => 'https://cdn.jsdelivr.net/gh/Chalarangelo/mini.css@3.0/dist/mini-default.min.css',
         'mui' => 'https://cdn.jsdelivr.net/gh/muicss/mui@0.9/packages/cdn/css/mui.min.css',
+        'mvp' => 'https://cdn.jsdelivr.net/gh/andybrewer/mvp@1.12/mvp.css',
         'picnic' => 'https://cdn.jsdelivr.net/gh/franciscop/picnic@6.4/releases/plugins.min.css',
         'skeleton' => 'https://cdn.jsdelivr.net/gh/dhg/Skeleton@2.0.4/css/skeleton.css',
     ];
