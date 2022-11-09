@@ -33,7 +33,7 @@ The package follows the KISS principle.
 
 This package is used on [html5example.com](https://html5example.com/).
 
-If you are in need of an HTML document once only, then you may use a 
+If you are in need of a boilerplate HTML document once only, then you may use a
 commandline tool like HTTPie and run
 `http https://html5example.com > index.html` to save a template file.
 
@@ -90,34 +90,38 @@ mirrored to GitLab)
    echo $template->getMarkup();
    ```
 
-1. Get the example template only (👉 or use the [Webapp](#webapp))
+1. Get the boilerplate example template only (👉 or use the [Webapp](#webapp))
    ```php
    echo \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate::getTemplate();
    ```
 
 ### Options
 
-- `setContent()` the message to show, any HTML string to replace the main
-  content of the document
-- `setStylesheet()` may be a URL to any existing stylesheet *or*
-  one of following reserved [keywords](https://gitlab.com/pixelbrackets/html5-mini-template/-/blob/1.2.1/src/Html5MiniTemplate.php#L18)
-  which then creates a link to a CDN of the selected CSS framework
-  - [`barebone`](https://github.com/pixelbrackets/barebone-stylesheet/)
-  - [`bootstrap`](https://github.com/twbs/bootstrap/)
-  - [`gfm`](https://github.com/pixelbrackets/gfm-stylesheet/)
-  - [`milligram`](https://github.com/milligram/milligram/)
-  - [`minicss`](https://github.com/Chalarangelo/mini.css/)
-  - [`mui`](https://github.com/muicss/mui/)
-  - [`mvp`](https://github.com/andybrewer/mvp/)
-  - [`picnic`](https://github.com/franciscop/picnic/)
-  - [`skeleton`](https://github.com/dhg/Skeleton/)
-- `setStylesheetMode()` either link the given stylesheet
-  (`Html5MiniTemplate::STYLE_LINK`, default) or fetch its content and print
-  it inline (`Html5MiniTemplate::STYLE_INLINE`).
-- `setTitle()` the title is the first headline found in the document, unless
-  it is overwritten with this option
-- `setAdditionalMetadata()` any additional metadata like metatags or link
-  references, for example a canonical link to avoid duplicate content
+- `setContent()` (*string*) the message to show, any HTML string to set
+  the main content of the document – if empty, then a
+  [boilerplate](https://html5example.com/) example content is used instead
+  - 💭 You work with Markdown content? Use the drop-in replacement package
+    [pixelbrackets/markdown-mini-page](https://packagist.org/packages/pixelbrackets/markdown-mini-page/)
+- `setStylesheet()` (*string*) may be a URL to any existing stylesheet *or*
+  one of following reserved keywords – each keyword creates a link to a CDN
+  of the associated CSS framework
+  - `barebone` ([Barebone Stylesheet](https://github.com/pixelbrackets/barebone-stylesheet/))
+  - `bootstrap` ([Bootstrap](https://github.com/twbs/bootstrap/))
+  - `gfm` ([GitHub Flavored Markdown Stylesheet](https://github.com/pixelbrackets/gfm-stylesheet/))
+  - `milligram` ([Milligram](https://github.com/milligram/milligram/))
+  - `minicss` ([mini.css](https://github.com/Chalarangelo/mini.css/))
+  - `mui` ([MUI - Material Design CSS Framework](https://github.com/muicss/mui/))
+  - `mvp` ([MVP.css](https://github.com/andybrewer/mvp/))
+  - `picnic` ([Picnic CSS](https://github.com/franciscop/picnic/))
+  - `skeleton` ([Skeleton](https://github.com/dhg/Skeleton/))
+- `setStylesheetMode()` (*string*) switch between a link to the given stylesheet
+  (using the constant `Html5MiniTemplate::STYLE_LINK`, this is the default mode)
+  or fetch the stylesheet file content and print it inline
+  (using the constant `Html5MiniTemplate::STYLE_INLINE`)
+- `setTitle()` (*string*) the document title – if empty, then the first H1
+  headline found in the main content is used as title instead
+- `setAdditionalMetadata()` (*string*) any additional metadata like metatags,
+  custom styles or link references like a canonical link
   - ⚠️ Usage of this option is an indicator that the given use case is too
     specific and switching to a template engine like the minimal
     [slim/php-view](https://packagist.org/packages/slim/php-view) or the
