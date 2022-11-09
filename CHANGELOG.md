@@ -1,5 +1,10 @@
 # Changelog
 
+2022-11-09 Dan Untenzu <mail@pixelbrackets.de>
+
+  * 2.2.0
+  * FEATURE Add barbone-stylesheet and mvp.css
+
 2020-11-15 Dan Untenzu <mail@pixelbrackets.de>
 
   * 2.1.0
