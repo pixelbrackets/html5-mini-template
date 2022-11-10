@@ -74,7 +74,7 @@ class Html5MiniTemplate
      */
     public function __construct()
     {
-        $this->markup = file_get_contents(__DIR__ . '/../resources/template.html');
+        $this->markup = $this->getFileContent(__DIR__ . '/../resources/template.html');
     }
 
     /**
@@ -87,7 +87,7 @@ class Html5MiniTemplate
         $markup = $this->markup;
         $content = $this->content;
 
-        // no message set = early return example template
+        // No message set = early return example template
         if ($content === null) {
             return self::getTemplate();
         }
@@ -113,9 +113,25 @@ class Html5MiniTemplate
         $markup = preg_replace('/<\/head>/', $this->additionalMetadata . '</head>', $markup);
 
         // Content
+        /** @var string $markup */
         $markup = preg_replace('/<body>(.*?)<\/body>/is', '<body>' . $content . '</body>', $markup);
 
+        // That's it
         return $markup;
+    }
+
+    /**
+     * Wrap file_get_contents function and throw errors if needed
+     *
+     * @param string $file File-URI to read its content from
+     * @return string
+     */
+    protected function getFileContent(string $file): string
+    {
+        if (($content = file_get_contents($file)) === false) {
+            throw new \RuntimeException('Can not access file to read its content');
+        }
+        return $content;
     }
 
     /**
@@ -135,7 +151,11 @@ class Html5MiniTemplate
      */
     public static function getTemplate()
     {
-        return file_get_contents(__DIR__ . '/../resources/template.html');
+        if (($content = file_get_contents(__DIR__ . '/../resources/template.html')) === false) {
+            throw new \RuntimeException('Can not access file to read its content');
+        }
+        return $content;
+
     }
 
     /**
@@ -209,7 +229,7 @@ class Html5MiniTemplate
     }
 
     /**
-     * Get stylesheet content
+     * Get stylesheet content and cache it in filesystem
      *
      * @return string
      */
@@ -217,15 +237,15 @@ class Html5MiniTemplate
     {
         $stylesheetUrl = $this->getStylesheetUrl();
 
-        // try to get a cached version first
+        // Try to get a cached version first
         $cachefile = sys_get_temp_dir() . '/' . md5($stylesheetUrl) . '.css';
         if (file_exists($cachefile) && (filemtime($cachefile) > (time() - 86400))) { // 1 day
-            return file_get_contents($cachefile);
+            return $this->getFileContent($cachefile);
         }
 
         try {
-            $stylesheetContent = file_get_contents($stylesheetUrl) ?: '';
-            // try to cache the file
+            $stylesheetContent = $this->getFileContent($stylesheetUrl) ?: '';
+            // Cache the file
             file_put_contents($cachefile, $stylesheetContent, LOCK_EX);
         } catch (\Exception $e) {
             // Catch exception if resource is not reachable
