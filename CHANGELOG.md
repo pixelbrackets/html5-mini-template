@@ -1,5 +1,10 @@
 # Changelog
 
+2022-11-10 Dan Untenzu <mail@pixelbrackets.de>
+
+  * 2.3.0
+  * FEATURE Extend boilerplate example content
+
 2022-11-09 Dan Untenzu <mail@pixelbrackets.de>
 
   * 2.2.0
