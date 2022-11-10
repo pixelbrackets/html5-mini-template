@@ -34,7 +34,7 @@ The package follows the KISS principle.
 This package is used on [html5example.com](https://html5example.com/).
 
 If you are in need of a boilerplate HTML document once only, then you may use a
-commandline tool like HTTPie and run
+commandline tool like cURL or HTTPie and run
 `http https://html5example.com > index.html` to save a template file.
 
 The webapp supports some [options](#options) of this package as well,
@@ -75,7 +75,7 @@ mirrored to GitLab)
    and save the document into a file
    ```php
    $template = new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate();
-   $template->setStylesheet('skeleton');
+   $template->setStylesheet('barbone');
    $template->setContent('<h1>Index</h1><p>Nothing to see here</p>');
    file_put_contents('/var/www/example/index.html', $template->getMarkup());
    ```
@@ -102,10 +102,11 @@ mirrored to GitLab)
   [boilerplate](https://html5example.com/) example content is used instead
   - 💭 You work with Markdown content? Use the drop-in replacement package
     [pixelbrackets/markdown-mini-page](https://packagist.org/packages/pixelbrackets/markdown-mini-page/)
+    to convert Markdown into HTML straightaway
 - `setStylesheet()` (*string*) may be a URL to any existing stylesheet *or*
   one of following reserved keywords – each keyword creates a link to a CDN
   of the associated CSS framework
-  - `barebone` ([Barebone Stylesheet](https://github.com/pixelbrackets/barebone-stylesheet/))
+  - `barebone` ([Barebone Stylesheet](https://github.com/pixelbrackets/barebone-stylesheet/)) – *super lightweight*
   - `bootstrap` ([Bootstrap](https://github.com/twbs/bootstrap/))
   - `gfm` ([GitHub Flavored Markdown Stylesheet](https://github.com/pixelbrackets/gfm-stylesheet/))
   - `milligram` ([Milligram](https://github.com/milligram/milligram/))

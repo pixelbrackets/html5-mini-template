@@ -1,9 +1,16 @@
-$template = (new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate());
-    ->setStylesheet('skeleton');
-    ->setContent('<h1>Status</h1><p>All Systems Operational</p>');
-return $template->getMarkup();
+/*
+Theme: Paraiso
+Language: PHP
+Width: Auto
+Export: 1x
+*/
 
-// Returns minimal HTML5 document markup
+$markup = (new \Pixelbrackets\Html5MiniTemplate\Html5MiniTemplate())
+    ->setStylesheet('skeleton')
+    ->setContent('<h1>Status</h1><p>All Systems Operational</p>')
+    ->getMarkup();
+
+// Returns minimal HTML5 document markup with a decent stylesheet
 /*
 <!DOCTYPE html>
 <html lang="en">
